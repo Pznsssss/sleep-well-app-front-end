@@ -1,41 +1,53 @@
 {
   "expo": {
-    "name": "Frontend",
-    "slug": "Frontend",
+    "name": "Sleep Well",
+    "slug": "Sleep-Well",
     "version": "1.0.0",
     "orientation": "portrait",
-    "icon": "./assets/images/icon.png",
-    "scheme": "frontend",
+    "icon": "./assets/images/moon-icon1024.png",
+    "scheme": "sleepwell",
     "userInterfaceStyle": "automatic",
-    "newArchEnabled": true,
+    "splash": {
+      "image": "./assets/images/moon-icon1024.png",
+      "resizeMode": "contain",
+      "backgroundColor": "#000000"
+    },
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "bundleIdentifier": "com.fauzan.sleepquality"
     },
     "android": {
       "adaptiveIcon": {
-        "foregroundImage": "./assets/images/adaptive-icon.png",
-        "backgroundColor": "#ffffff"
+        "foregroundImage": "./assets/images/moon-icon1024.png",
+        "backgroundColor": "#000000"
       },
-      "edgeToEdgeEnabled": true
+      "package": "com.fauzan.sleepwell",
+      "versionCode": 1
     },
     "web": {
-      "bundler": "metro",
-      "output": "static",
-      "favicon": "./assets/images/favicon.png"
+      "favicon": "./assets/images/moon-icon.png"
     },
     "plugins": [
-      [
-        "expo-splash-screen",
-        {
-          "image": "./assets/images/splash-icon.png",
-          "imageWidth": 200,
-          "resizeMode": "contain",
-          "backgroundColor": "#ffffff"
-        }
-      ]
+      "expo-router",
+      "expo-web-browser"
     ],
     "experiments": {
       "typedRoutes": true
+    },
+    "extra": {
+      "supabaseUrl": "https://jihiocajzxsghtqzjegl.supabase.co",
+      "supabaseAnonKey": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImppaGlvY2FqenhzZ2h0cXpqZWdsIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTAyNDI4MTksImV4cCI6MjA2NTgxODgxOX0._S9Fsl5rS6v3o3Bl0owgCQii51LFtQYqMNAY36U_2mQ",
+      "eas": {
+        "projectId": "fddaada9-344c-43c5-aa4f-d8cbbb2aaffb"
+      }
+    },
+    "owner": "zanss",
+    "runtimeVersion": {
+      "policy": "appVersion"
+    },
+    "updates": {
+      "url": "https://u.expo.dev/fddaada9-344c-43c5-aa4f-d8cbbb2aaffb"
     }
-  }
+  },
+  "owner": "zanss"
 }

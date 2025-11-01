@@ -49,16 +49,19 @@ const moveDirectories = async (userInput) => {
   try {
     if (userInput === "y") {
       // Create the app-example directory
-      await fs.promises.mkdir(exampleDirPath, { recursive: true });
-      console.log(`📁 /${exampleDir} directory created.`);
+      if (!fs.existsSync(exampleDirPath)) {
+        await fs.promises.mkdir(exampleDirPath, { recursive: true });
+        console.log(`📁 /${exampleDir} directory created.`);
+      }
     }
 
     // Move old directories to new app-example directory or delete them
     for (const dir of oldDirs) {
       const oldDirPath = path.join(root, dir);
+      
       if (fs.existsSync(oldDirPath)) {
         if (userInput === "y") {
-          const newDirPath = path.join(root, exampleDir, dir);
+          const newDirPath = path.join(exampleDirPath, dir);
           await fs.promises.rename(oldDirPath, newDirPath);
           console.log(`➡️ /${dir} moved to /${exampleDir}/${dir}.`);
         } else {
@@ -72,8 +75,11 @@ const moveDirectories = async (userInput) => {
 
     // Create new /app directory
     const newAppDirPath = path.join(root, newAppDir);
-    await fs.promises.mkdir(newAppDirPath, { recursive: true });
-    console.log("\n📁 New /app directory created.");
+    
+    if (!fs.existsSync(newAppDirPath)) {
+      await fs.promises.mkdir(newAppDirPath, { recursive: true });
+      console.log("\n📁 New /app directory created.");
+    }
 
     // Create index.tsx
     const indexPath = path.join(newAppDirPath, "index.tsx");
@@ -95,6 +101,8 @@ const moveDirectories = async (userInput) => {
     );
   } catch (error) {
     console.error(`❌ Error during script execution: ${error.message}`);
+    console.error(`Stack trace: ${error.stack}`);
+    process.exit(1); // Keluar dengan kode error
   }
 };
 
@@ -107,6 +115,7 @@ rl.question(
     } else {
       console.log("❌ Invalid input. Please enter 'Y' or 'N'.");
       rl.close();
+      process.exit(1);
     }
   }
 );

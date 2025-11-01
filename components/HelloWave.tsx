@@ -1,21 +1,25 @@
-import { useEffect } from 'react';
-import { StyleSheet } from 'react-native';
+import { useEffect } from "react";
+import { StyleSheet } from "react-native";
 import Animated, {
   useAnimatedStyle,
   useSharedValue,
   withRepeat,
   withSequence,
   withTiming,
-} from 'react-native-reanimated';
+} from "react-native-reanimated";
 
-import { ThemedText } from '@/components/ThemedText';
+// Ganti path alias dengan path relatif
+import { ThemedText } from "./ThemedText"; // File berada di folder yang sama
 
 export function HelloWave() {
   const rotationAnimation = useSharedValue(0);
 
   useEffect(() => {
     rotationAnimation.value = withRepeat(
-      withSequence(withTiming(25, { duration: 150 }), withTiming(0, { duration: 150 })),
+      withSequence(
+        withTiming(25, { duration: 150 }),
+        withTiming(0, { duration: 150 }),
+      ),
       4 // Run the animation 4 times
     );
   }, [rotationAnimation]);
