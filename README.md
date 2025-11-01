@@ -18,6 +18,7 @@ Data pengguna tersimpan secara online melalui Supabase yang berfungsi sebagai ba
 📱 UI Responsif dan Ramah Pengguna
 
 🛠️ Teknologi yang Digunakan
+
 Komponen	Teknologi
 Front-End	React Native (Expo)
 Back-End	Express.js
