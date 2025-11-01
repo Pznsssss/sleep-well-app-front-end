@@ -32,4 +32,6 @@ Saya bertanggung jawab penuh pada pengembangan antarmuka pengguna (Front-End) da
 Selama proses pengembangan, saya juga berkolaborasi dengan rekan tim yang menangani bagian hardware, website, dan server.
 
 
+
+
 Proyek ini dibuat sebagai bagian dari Tugas Akhir di Universitas Telkom Bandung dan tidak digunakan untuk tujuan komersial.
