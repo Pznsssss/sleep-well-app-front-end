@@ -26,20 +26,6 @@ Database	Supabase
 Bahasa	TypeScript
 Tools	VS Code, Android Studio
 
-🧩 Struktur Proyek
-
-📂 sleep-monitoring-app
- ┣ 📂 app
- ┃ ┣ 📜 login.tsx
- ┃ ┣ 📜 register.tsx
- ┃ ┣ 📜 dashboard.tsx
- ┣ 📂 components
- ┃ ┣ 📜 SensorDataCard.tsx
- ┃ ┗ 📜 SleepDiagram.tsx
- ┣ 📜 App.tsx
- ┣ 📜 package.json
- ┗ 📜 README.md
-
  🧠 Peran Saya
  
 Saya bertanggung jawab penuh pada pengembangan antarmuka pengguna (Front-End) dan integrasi data dengan backend Supabase.
