@@ -23,7 +23,7 @@ Komponen	Teknologi
 Front-End	React Native (Expo)
 Back-End	Express.js
 Database	Supabase
-Bahasa	TypeScript
+Bahasa	Javascript, TypeScript
 Tools	VS Code, Android Studio
 
  🧠 Peran Saya
