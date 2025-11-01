@@ -43,7 +43,7 @@ Tools	VS Code, Android Studio
  🧠 Peran Saya
  
 Saya bertanggung jawab penuh pada pengembangan antarmuka pengguna (Front-End) dan integrasi data dengan backend Supabase.
-Selama proses pengembangan, saya juga berkolaborasi dengan rekan tim yang menangani bagian hardware dan server.
+Selama proses pengembangan, saya juga berkolaborasi dengan rekan tim yang menangani bagian hardware, website, dan server.
 
 
 Proyek ini dibuat sebagai bagian dari Tugas Akhir di Universitas Telkom Bandung dan tidak digunakan untuk tujuan komersial.
