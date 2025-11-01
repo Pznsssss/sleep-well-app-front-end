@@ -1,6 +1,6 @@
 💤 Sleep Monitoring App
-
 📱 Deskripsi Proyek
+
 Sleep Monitoring App adalah aplikasi mobile berbasis Android yang digunakan untuk menganalisis dan memantau kualitas tidur pengguna.
 Aplikasi ini dikembangkan menggunakan React (Expo) untuk tampilan antarmuka dan Express.js untuk pengelolaan data.
 Data pengguna tersimpan secara online melalui Supabase yang berfungsi sebagai backend database.
@@ -25,7 +25,8 @@ Database	Supabase
 Bahasa	TypeScript
 Tools	VS Code, Android Studio
 
-🧩 Struktur Proyek (Contoh)
+🧩 Struktur Proyek
+
 📂 sleep-monitoring-app
  ┣ 📂 app
  ┃ ┣ 📜 login.tsx
@@ -39,6 +40,7 @@ Tools	VS Code, Android Studio
  ┗ 📜 README.md
 
  🧠 Peran Saya
+ 
 Saya bertanggung jawab penuh pada pengembangan antarmuka pengguna (Front-End) dan integrasi data dengan backend Supabase.
 Selama proses pengembangan, saya juga berkolaborasi dengan rekan tim yang menangani bagian hardware dan server.
 
