@@ -10,7 +10,7 @@ Data pengguna tersimpan secara online melalui Supabase yang berfungsi sebagai ba
 
 🔐 Autentikasi Pengguna (Login & Register)
 
-🌡️ Monitoring Sensor (suhu, suara, cahaya, detak jantung)
+🌡️ Monitoring Sensor (suhu, suara, cahaya)
 
 📊 Visualisasi Data Tidur dalam bentuk grafik
 
