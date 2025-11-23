@@ -21,10 +21,10 @@ Data pengguna tersimpan secara online melalui Supabase yang berfungsi sebagai ba
 🛠️ Teknologi yang Digunakan
 
 Komponen	Teknologi
-Front-End	React Native (Expo)
-Back-End	Express.js
-Database	Supabase
-Bahasa	Javascript, TypeScript
+Front-End	React Native (Expo),
+Back-End	Express.js,
+Database	Supabase,
+Bahasa	Javascript, TypeScript,
 Tools	VS Code, Android Studio
 
  🧠 Peran Saya
