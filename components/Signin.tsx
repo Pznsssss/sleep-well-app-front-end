@@ -9,15 +9,16 @@ import {
   ActivityIndicator,
 } from "react-native";
 import { useRouter } from "expo-router";
-import { supabase } from "../lib/supabaseClient";
+import { getSupabase } from "../lib/supabaseClient";
 
-const SignInScreen = () => {
+export default function SignInScreen() {
+  const router = useRouter();
+  const supabase = getSupabase(); // ✅ FIX PENTING: Supabase DI DALAM KOMPONEN
+
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [loginMessage, setLoginMessage] = useState("");
   const [isLoading, setIsLoading] = useState(false);
-
-  const router = useRouter();
 
   const handleLogin = async () => {
     setLoginMessage("");
@@ -25,7 +26,7 @@ const SignInScreen = () => {
 
     try {
       if (!email.trim() || !password.trim()) {
-        setLoginMessage("Email and password are required");
+        setLoginMessage("Email dan password wajib diisi.");
         setIsLoading(false);
         return;
       }
@@ -36,29 +37,19 @@ const SignInScreen = () => {
       });
 
       if (error) {
-        setLoginMessage(`Login failed: ${error.message}`);
+        setLoginMessage(`Login gagal: ${error.message}`);
       } else {
-        setLoginMessage("Login successful! Redirecting...");
+        setLoginMessage("Login berhasil! Mengalihkan...");
+        setTimeout(() => {
+          router.replace("/(tabs)/dashboard");
+        }, 1500);
       }
     } catch (error) {
       console.error("Login error:", error);
-      setLoginMessage("Failed to connect. Please try again.");
+      setLoginMessage("Gagal terhubung ke server.");
     } finally {
       setIsLoading(false);
     }
-  };
-
-  useEffect(() => {
-    if (loginMessage.toLowerCase().includes("successful")) {
-      const timer = setTimeout(() => {
-        router.replace("/(tabs)/dashboard");
-      }, 1500);
-      return () => clearTimeout(timer);
-    }
-  }, [loginMessage]);
-
-  const goToSignUp = () => {
-    router.push("/register");
   };
 
   return (
@@ -94,7 +85,9 @@ const SignInScreen = () => {
         <Text
           style={[
             styles.message,
-            loginMessage.includes("successful") ? styles.success : styles.error,
+            loginMessage.includes("berhasil")
+              ? styles.success
+              : styles.error,
           ]}
         >
           {loginMessage}
@@ -102,14 +95,14 @@ const SignInScreen = () => {
       ) : null}
 
       <View style={styles.signUpContainer}>
-        <Text style={styles.signUpText}>Don't have an account?</Text>
-        <TouchableOpacity onPress={goToSignUp}>
+        <Text style={styles.signUpText}>Belum punya akun?</Text>
+        <TouchableOpacity onPress={() => router.push("/register")}>
           <Text style={styles.signUpLink}>Sign Up</Text>
         </TouchableOpacity>
       </View>
     </View>
   );
-};
+}
 
 const styles = StyleSheet.create({
   container: {
@@ -167,5 +160,3 @@ const styles = StyleSheet.create({
     marginLeft: 5,
   },
 });
-
-export default SignInScreen;

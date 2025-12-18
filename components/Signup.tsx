@@ -9,11 +9,12 @@ import {
   TouchableOpacity,
 } from "react-native";
 import { useRouter } from "expo-router";
-import { supabase } from "../lib/supabaseClient";
+import { getSupabase } from "../lib/supabaseClient";
 import * as Crypto from "expo-crypto";
 
-const RegistrationScreen = () => {
+export default function RegistrationScreen() {
   const router = useRouter();
+  const supabase = getSupabase();
 
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -31,15 +32,22 @@ const RegistrationScreen = () => {
   };
 
   const handleRegister = async () => {
+    if (isLoading) return;
+
     setRegistrationMessage("");
 
     if (!email || !password) {
-      setRegistrationMessage("Email and password are required.");
+      setRegistrationMessage("Email dan password wajib diisi.");
       return;
     }
 
     if (!isValidEmail(email)) {
-      setRegistrationMessage("Invalid email format.");
+      setRegistrationMessage("Format email tidak valid.");
+      return;
+    }
+
+    if (password.length < 6) {
+      setRegistrationMessage("Password minimal 6 karakter.");
       return;
     }
 
@@ -57,8 +65,9 @@ const RegistrationScreen = () => {
       });
 
       if (error) {
-        setRegistrationMessage(`Failed to register: ${error.message}`);
+        setRegistrationMessage(`Registrasi gagal: ${error.message}`);
       } else if (data?.user) {
+        // ⬇️ Jika tidak punya kolom password_hash, hapus bagian ini
         const { error: insertError } = await supabase.from("users").insert([
           {
             id: data.user.id,
@@ -70,17 +79,17 @@ const RegistrationScreen = () => {
 
         if (insertError) {
           console.error("Insert error:", insertError);
-          setRegistrationMessage("Account created, but failed to save profile.");
+          setRegistrationMessage("Akun dibuat, tetapi gagal menyimpan data user.");
         } else {
-          setRegistrationMessage("Account created successfully!");
+          setRegistrationMessage("Akun berhasil dibuat!");
           setTimeout(() => {
             router.replace("/login");
-          }, 2000);
+          }, 1500);
         }
       }
     } catch (err) {
       console.error("Registration error:", err);
-      setRegistrationMessage("Network error occurred.");
+      setRegistrationMessage("Terjadi kesalahan jaringan.");
     } finally {
       setIsLoading(false);
     }
@@ -127,7 +136,7 @@ const RegistrationScreen = () => {
         <Text
           style={[
             styles.message,
-            registrationMessage.toLowerCase().includes("success")
+            registrationMessage.toLowerCase().includes("berhasil")
               ? styles.success
               : styles.error,
           ]}
@@ -137,14 +146,14 @@ const RegistrationScreen = () => {
       )}
 
       <View style={styles.footer}>
-        <Text style={styles.footerText}>Already have an account?</Text>
+        <Text style={styles.footerText}>Sudah punya akun?</Text>
         <TouchableOpacity onPress={() => router.push("/login")}>
           <Text style={styles.footerLink}>Sign In</Text>
         </TouchableOpacity>
       </View>
     </View>
   );
-};
+}
 
 const styles = StyleSheet.create({
   container: {
@@ -197,5 +206,3 @@ const styles = StyleSheet.create({
     textDecorationLine: "underline",
   },
 });
-
-export default RegistrationScreen;

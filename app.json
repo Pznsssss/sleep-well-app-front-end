@@ -27,27 +27,24 @@
     "web": {
       "favicon": "./assets/images/moon-icon.png"
     },
-    "plugins": [
-      "expo-router",
-      "expo-web-browser"
-    ],
+    "plugins": ["expo-router", "expo-web-browser"],
     "experiments": {
       "typedRoutes": true
     },
     "extra": {
-      "supabaseUrl": "https://jihiocajzxsghtqzjegl.supabase.co",
-      "supabaseAnonKey": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImppaGlvY2FqenhzZ2h0cXpqZWdsIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTAyNDI4MTksImV4cCI6MjA2NTgxODgxOX0._S9Fsl5rS6v3o3Bl0owgCQii51LFtQYqMNAY36U_2mQ",
+      "supabaseUrl": "https://jatdfvvldgajrwxdkyza.supabase.co",
+      "supabaseAnonKey": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImphdGRmdnZsZGdhanJ3eGRreXphIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjQzOTYxOTEsImV4cCI6MjA3OTk3MjE5MX0.Mi8vFw7vBI1-ROP5N8cAMtAStauJJPwrza13-l63DOU",
+      "router": {},
       "eas": {
         "projectId": "fddaada9-344c-43c5-aa4f-d8cbbb2aaffb"
       }
     },
-    "owner": "zanss",
     "runtimeVersion": {
       "policy": "appVersion"
     },
     "updates": {
       "url": "https://u.expo.dev/fddaada9-344c-43c5-aa4f-d8cbbb2aaffb"
-    }
-  },
-  "owner": "zanss"
+    },
+    "owner": "zanss"
+  }
 }

@@ -1,6 +1,6 @@
-import React from 'react';
-import Signup from '../components/Signup';
+import React from "react";
+import RegistrationScreen from "../components/Signup";
 
 export default function RegisterPage() {
-  return <Signup />;
+  return <RegistrationScreen />;
 }
